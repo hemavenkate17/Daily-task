@@ -10,29 +10,51 @@ namespace Explore
 {
     class Program
     {
-        
-        public void SelectBooks()
-        {
-            SqlConnection con = new SqlConnection("data source =LAPTOP-FUHQ3D30\\SQLEXPRESS; database = BookDb;integrated security =true");
-            SqlCommand cmd = new SqlCommand("select * from tbl_Books", con);
+        //public void SelectBooks()
+        //{
+        //    SqlConnection con = new SqlConnection("data source =LAPTOP-FUHQ3D30\\SQLEXPRESS; database = BookDb;integrated security =true");
+        //    SqlCommand cmd = new SqlCommand("", con);
 
-            try
-            {
-                con.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                    Console.WriteLine(rdr["BookID"] + " " + rdr["Title"] + " " + rdr["Price"].ToString());
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlDataReader rdr = cmd.ExecuteReader();
+        //        while (rdr.Read())
+        //            Console.WriteLine(rdr["BookID"] + " " + rdr["Title"] + " " + rdr["Price"].ToString());
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Server is not responding");
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine("Server is not responding");
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
+
+        //public void SelectBooks()
+        //{
+        //    SqlConnection con = new SqlConnection("data source =LAPTOP-FUHQ3D30\\SQLEXPRESS; database = BookDb;integrated security =true");
+        //    SqlCommand cmd = new SqlCommand("select * from tbl_Books", con);
+
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlDataReader rdr = cmd.ExecuteReader();
+        //        while (rdr.Read())
+        //            Console.WriteLine(rdr["BookID"] + " " + rdr["Title"] + " " + rdr["Price"].ToString());
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine("Server is not responding");
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
         public void InsertBooks()
         {
             SqlConnection con = new SqlConnection("data source =LAPTOP-FUHQ3D30\\SQLEXPRESS; database = BookDb;integrated security =true");

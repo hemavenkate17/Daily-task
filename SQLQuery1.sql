@@ -71,5 +71,11 @@ exec  sp_DeleteAuthor 4
  select * from tbl_Author
  select * from tbl_Books
 
+ create table Movies
+(
+No int identity (1,1),
+Movies varchar(20),
+)
+
  alter database BookDb
  set Recursive_Triggers on

@@ -1,0 +1,57 @@
+﻿@model TaskDropDown.Models.Department
+
+@using System.Data
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<body>
+    <h2>Department List</h2>
+    <br />
+    @using (Html.BeginForm("Index", "Department", FormMethod.Post))
+    {
+        <label>Department:</label>
+        @Html.DropDownListFor(m => m.DepartmentId, Model.Departments, "Select", new { @class = "form-control" })
+        <br /> <br />
+        <input type="submit" name="action" />
+    }
+    <br /><br />
+    @if (Model.Dt != null)
+    {
+        <div>
+            <form method="post" name="Display">
+
+                @{ if (Model.Dt.Rows.Count > 0)
+                    {
+                        <h2>Employee Details</h2>
+                        <br />
+                        <br />
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Employee ID</th>
+                                    <th>Employee Name</th>
+                                    <th>Employee BirthDate</th>
+                                    <th>Gender</th>
+                                    <th>MaritalStatus</th>
+                                    <th>HireDate</th>
+                                </tr>
+                            </thead>
+                            @foreach (DataRow dr in Model.Dt.Rows)
+                            {
+                                <tr>
+                                    <td>@dr["BusinessEntityID"].ToString()</td>
+                                    <td>@dr["FirstName"].ToString()</td>
+                                    <td>@dr["BirthDate"].ToString()</td>
+                                    <td>@dr["Gender"].ToString()</td>
+                                    <td>@dr["MaritalStatus"].ToString()</td>
+                                    <td>@dr["HireDate"].ToString()</td>
+                                </tr>
+                            }
+                        </table> }
+                }
+            </form>
+        </div>
+    }
+</body>
